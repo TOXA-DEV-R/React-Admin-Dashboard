@@ -1,0 +1,87 @@
+@mixin font_sz($size) {
+    font-size: $size / 16;
+}
+
+@mixin flex_all($align, $justify) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+
+}
+
+@mixin flex_justify($justify) {
+    display: flex;
+    justify-content: $justify;
+
+}
+
+@mixin flex_align($align) {
+    display: flex;
+    align-items: $align;
+
+}
+
+@mixin margin($control, $number) {
+    $margin_16: 16;
+
+    @if($control=='bottom') {
+        margin-bottom: $number / $margin_16;
+    }
+
+    @else if($control=='left') {
+        margin-left: $number / $margin_16;
+    }
+
+    @else if($control=='right') {
+        margin-right: $number / $margin_16;
+    }
+
+    @else {
+        margin-top: $number / $margin_16;
+    }
+}
+
+.navbar {
+    height: 50px;
+    border-bottom: 0.5px solid rgb(231, 228, 228);
+    @include flex_align(center);
+    @include font_sz(14rem);
+    color: #555;
+
+    &-wrapper {
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        @include flex_all(center, space-between);
+
+    }
+
+    &-search {
+        @include flex_align(center);
+        border: 0.5px solid lightgray;
+        padding: 3px;
+
+        input {
+            border: none;
+            outline: none;
+            background-color: transparent;
+
+            &::placeholder {
+                @include font_sz(12rem)
+            }
+        }
+    }
+
+    &-items {
+        @include flex_align(center);
+    }
+
+    &-item {
+        @include flex_align(center);
+        @include margin(right, 20rem);
+
+        .icon {
+            font-size: 20px;
+        }
+    }
+}

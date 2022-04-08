@@ -1,0 +1,151 @@
+@mixin flex_1 {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin flex_2 {
+    display: flex;
+    align-items: center;
+}
+
+@mixin flex_3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex_column_1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@mixin column_1 {
+    flex-direction: column;
+    align-items: center;
+}
+
+@mixin column_2 {
+    flex-direction: column;
+    justify-content: center;
+}
+
+@mixin column_3 {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin font_sz_16 {
+    font-size: var(--font-sz-16);
+}
+
+@mixin font_sz_10 {
+    font-size: var(--font-sz-10);
+}
+
+@mixin font_sz_13 {
+    font-size: var(--font-sz-13);
+}
+
+@mixin font_sz_20 {
+    font-size: var(--font-sz-20);
+}
+
+@mixin font_wt_bold {
+    font-weight: var(--font-wt-700);
+}
+
+@mixin font_wt_6 {
+    font-weight: var(--font-wt-600);
+}
+
+@mixin white {
+    color: var(--white);
+}
+
+@mixin bg_white {
+    background-color: var(--white);
+
+}
+
+
+.sidebar {
+    flex: 1;
+    border-right: 0.5px solid lightgray;
+    min-height: 100vh;
+    @include bg_white();
+
+    &-top {
+        height: 50px;
+        @include flex_column_1();
+        justify-content: center;
+        border-bottom: 0.5px solid lightgray;
+
+    }
+
+    &-logo {
+        display: block;
+        @include font_sz_20();
+        @include font_wt_bold();
+        color: #6439ff;
+    }
+
+    &-center {
+        padding-left: 10px;
+
+        &__title {
+            @include font_sz_10();
+            @include font_wt_bold();
+            color: #999;
+            margin-top: 15px;
+            margin-top: 5px;
+        }
+
+        ul {
+            li {
+                @include flex_2();
+                padding: 5px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #ece8ff;
+                }
+
+                .icon {
+                    font-size: 18px;
+                    color: #7451f8;
+                }
+
+                span {
+                    @include font_sz_13();
+                    @include font_wt_6();
+                    color: #888;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+
+    &-bottom {
+        @include flex_2();
+        margin: 10px;
+
+        .color-option {
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            border: 1px solid #7451f8;
+            margin: 5px;
+            cursor: pointer;
+
+            &:nth-of-type(1) {
+                background-color: whitesmoke;
+            }
+
+            &:nth-of-type(2) {
+                background-color: #333;
+            }
+        }
+    }
+}
